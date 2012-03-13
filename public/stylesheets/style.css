@@ -1,0 +1,47 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+.kr ul, li {
+	font-size: medium;
+	font-weight: 100;
+	margin-left: 30px;
+	color: gray;
+	height:auto;
+
+}
+
+.goal {
+	font-size: large;
+	font-weight: bold;
+}
+
+.objdiv input[type='text'] {
+	width: 85%;
+	height: 30px;
+	font-size: medium;
+
+}
+
+.objdiv ul, li {
+	
+	margin-left: 30px;
+
+}
+
+#save {
+	float:right;
+	height: 30px;
+	width: 50px;
+	background-color: black;
+	border-style: double;
+	border-color: red;
+	color: white;
+
+}

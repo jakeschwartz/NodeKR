@@ -1,0 +1,15 @@
+append head
+	script(src='/javascripts/create-jquery.js')
+
+h1 Create new set of OKRs
+
+input.add#addobj(type='button', value='Add Objective')
+p
+form.okr#okrform(action='/okr-post', method='post', enctype='multipart/form-data') 
+	input.add#owner(type='hidden', name='owner', value='#{owner}')
+	input.add#owner(type='hidden', name='ownerfullname', value='#{ownername}')
+	h4 Period: 
+		input.add#period(type='text', name='period')
+input.add#save(type='button', value='Save')
+
+		

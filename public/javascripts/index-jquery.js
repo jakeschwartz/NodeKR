@@ -1,0 +1,10 @@
+//Index
+
+$(document).ready(function() {
+
+	
+
+});
+
+
+
