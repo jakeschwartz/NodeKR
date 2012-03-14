@@ -1,8 +1,12 @@
 !!!
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='/javascripts/jquery.js')
-    script(src='/javascripts/jquery.formparams.min.js')
-  body!= body
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/zebra_datepicker.css')
+		script(src='/javascripts/jquery.js')
+		script(src='/javascripts/jquery.formparams.min.js')
+		script(src='/javascripts/zebra_datepicker.js')
+	div#navigation!= partial('header.jade')
+	body!= body
+		

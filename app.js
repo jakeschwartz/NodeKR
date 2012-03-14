@@ -5,7 +5,6 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , auth = require('./auth.js')
   , nano = require('nano')('http://jakeschwartz:mandolin@127.0.0.1:6984');
 
 var objkeys = nano.use('objkeys');
@@ -41,6 +40,8 @@ app.get('/create', routes.create);
 app.get('/view/:id', routes.view);
 app.get('/edit', routes.edit);
 app.get('/all', routes.all);
+app.get('/dates/:id', routes.addDates);
+app.get('/start', routes.start);
 
 app.post('/login-post', function(req, res) {
 	console.log(req.body.id);
@@ -50,8 +51,7 @@ app.post('/login-post', function(req, res) {
 		}
 		if (req.body.pass == b.pass) {
 			req.session.user = b;
-			console.log(req.session.user.pass);
-			res.redirect('/create');
+			res.redirect('/start');
 		}
 		else {
 			res.redirect('/');

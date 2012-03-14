@@ -7,7 +7,6 @@ a {
   color: #00B7FF;
 }
 
-
 .kr ul, li {
 	font-size: medium;
 	font-weight: 100;
@@ -22,17 +21,27 @@ a {
 	font-weight: bold;
 }
 
-.objdiv input[type='text'] {
+
+form.okr input[type='text'] {
 	width: 85%;
 	height: 30px;
 	font-size: medium;
 
 }
 
-.objdiv ul, li {
-	
-	margin-left: 30px;
+#period {
+	width: 50px;
 
+}
+
+#date input{
+	width: 85px;
+	height: 15px;
+	font-size:smaller;
+}
+
+.objdiv ul, li {
+	margin-left: 30px;
 }
 
 #save {
@@ -45,3 +54,9 @@ a {
 	color: white;
 
 }
+
+#kr-input  {
+	width: 65%;
+
+}
+
