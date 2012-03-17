@@ -1,0 +1,23 @@
+h2 Edit your user information
+
+form#user-info(action='/user-edit-post', method='post', enctype='multipart/form-data')\
+	input(type='hidden', name='_id' value='{data.id})
+	input(type='hidden', name='_rev'), value='{data.rev})
+	
+	h4 Full Name:
+		input(type='text', value='#{data.fullname}')
+	p
+	h4 Email:
+		input(type='email', value='#{data.email}')
+	p
+	h4 Password:
+		input(type='text', value='#{data.pass}')
+	p
+	h4 Division:
+		input(type='text', value='#{data.division}')
+	p
+	h4 Supervisor:
+		input(type='text', value='#{data.supervisor}')
+
+	input(type='submit', value='Submit')					
+			

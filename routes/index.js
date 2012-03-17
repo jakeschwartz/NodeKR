@@ -50,7 +50,7 @@ exports.view = function(req, res) {
 			}
 			else {
 				console.log(b);
-				console.log(Object.keys(b.okr[0]).length)
+				console.log(req.session.user);
 				res.render('view', {title: 'View', user: req.session.user, data: b})
 			}
 		});
@@ -86,4 +86,10 @@ exports.start = function(req, res) {
 	else {
 		res.render('index', {title: title, user: {fullname: "Guest"} });
 	}
+};
+
+// User admin routes
+
+exports.createUser = function(req, res) {
+	res.render('createuser', {title: title, user: {fullname: "Guest"} });
 };

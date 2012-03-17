@@ -3,10 +3,8 @@
 $(document).ready(function() {
 	var objCounter = 0;
 	$("#addobj").click(function(){
-		$("#okrform").append("<div class='objdiv' name='" + objCounter + "'>" + (objCounter + 1) +". <input type='text' class='obj' name='okr[" + objCounter + 			"][goal]'><p><p><ul class='ul'><input type='button' class='addkr' id='" + objCounter + "' value='+KR'><p></ul></div>")
-		objCounter++;
-		
-		
+		$("#okrform").append("<input type='hidden' name='okr[" + objCounter + "][comments]'><div class='objdiv' name='" + objCounter + "'>" + (objCounter + 1) +". <input type='text' class='obj' name='okr[" + objCounter + 			"][goal]'><p><p><ul class='ul'><input type='button' class='addkr' id='" + objCounter + "' value='+KR'><p></ul></div>")
+		objCounter++;		
 	});
 
 	$("#okrform").on("click", ".addkr", function() {

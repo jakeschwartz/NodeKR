@@ -1,3 +1,10 @@
+/** Need to build:
+	-User info page
+	-Different list views - by division, by supervisor, by period
+	-Have period be a select drop down with 'this quarter' and 'next quarter'
+	-BIG PROJECT: in line editing
+	-BIG PROJECT: commenting, assignments of "watch"
+	-
 
 /**
  * Module dependencies.
@@ -74,6 +81,84 @@ app.post('/okr-post', function(req, res) {
 	
 });
 
+app.post('/view-post', function(req, res) {
+	var i = req.body.address[0];
+	var j = req.body.address[1];
+	objkeys.get(req.body.doc, function(e, b, h){
+		if (e) {
+			console.log(e);
+		}
+		else {
+			if (b.okr[i][j].depend) {
+				b.okr[i][j].depend.push(req.body.user);
+			}
+			else {
+				b.okr[i][j].depend = [];
+				b.okr[i][j].depend.push(req.body.user);
+			}
+			objkeys.insert(b, function(e, b, h) {
+				if (e) {
+					console.log(e)
+				}
+				else {
+					console.log(b)
+				}
+			});
+		}
+	});
+});
+
+app.post('/comment-post',function(req, res) {
+	var i = req.body.address[0];
+	objkeys.get(req.body.doc, function(e, b, h) {
+		if (e) {
+			console.log(e)
+		}
+		else {
+			if (b.okr[i].comments) {
+				b.okr[i].comments.push({"user": req.body.user,"comment": req.body.text});
+				console.log(b.okr[i].comments);
+			}
+	
+			else {
+				b.okr[i].comments = [];
+				console.log(req.session.user.fullname);
+				b.okr[i].comments.push({"user": req.body.user, "userfullname": req.session.user.fullname, "comment": req.body.text});
+			}
+			objkeys.insert(b, function(e, b, h) {
+				if (e) {
+					console.log(e)
+				}
+				else {
+					console.log(b)
+				}
+			});
+		}	
+	});
+});
+
+//User admin routes
+
+app.get('/createuser', routes.createUser);
+app.get('/edituser', routes.editUser);
+
+app.post('/user-post', function(req, res){
+	users.insert(req.body, function(e,b,h) {
+		if(e) {
+			console.log(e);
+		}
+		else {
+			console.log(b);
+			console.log("This worked!");
+			res.redirect('/start');
+		}
+
+	});
+});
+
+app.post('/user-edit-post', function(req, res) {
+	
+});
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

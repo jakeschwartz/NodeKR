@@ -1,0 +1,23 @@
+h2 Create your user profile
+
+form#user-info(action='/user-post', method='post', enctype='multipart/form-data')
+	p
+		h4 Username:
+			input(type='text', name='_id', value='')
+	p
+		h4 Full Name:
+			input(type='text', name='fullname', value='')
+	p
+		h4 Email:
+			input(type='email', name='email', value='')
+	p
+		h4 Password:
+			input(type='text', name='pass', value='')
+	p
+		h4 Division:
+			input(type='text', name='division', value='')
+	p
+		h4 Supervisor:
+			input(type='text', name='supervisor', value='')
+					
+	input(type='submit', value='Submit')

@@ -60,3 +60,51 @@ form.okr input[type='text'] {
 
 }
 
+.depend {
+	background-color: yellow;
+	width: 40px;
+	font-size: x-small;
+	text-align: center;
+}
+
+.enable {
+	background-color: green;
+	width: 40px;
+	font-size: x-small;
+	text-align: center;
+}
+
+.commentbox {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #121212;
+	padding: 10px;
+	background-color: #88b0ff 
+}
+
+.commentbox li {
+	
+	padding-left: 0px;
+	
+	padding-bottom: 0px;
+	
+	padding-right: 0px;
+	
+	margin-top: 4px;
+	
+	color: #0e0e0e;
+	
+	font-size: small;
+	
+	list-style-type: none;
+	
+	border-top-color: gray;
+	border-top-style: solid;
+	width: 20%;
+	
+}
+
+.commentbox input[type='text'] {
+	margin-top: 6px;
+	margin-left: 10px;
+}
+
