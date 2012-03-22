@@ -31,9 +31,9 @@ exports.all = function(req, res) {
 };
 
 exports.create = function(req, res) {
-	if (req.session.user) {	
+	if (req.session.user) {
 		res.render('create', {
-			title: 'Create Your OKRs', 
+			title: 'Create Your OKRs',
 			user: req.session.user
 		})
 	}
@@ -84,7 +84,7 @@ exports.start = function(req, res) {
 		res.render('start', {title: 'Objective.ly', user: req.session.user});
 	}
 	else {
-		res.render('index', {title: title, user: {fullname: "Guest"} });
+		res.redirect('/');
 	}
 };
 
