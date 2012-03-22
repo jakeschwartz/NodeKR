@@ -1,6 +1,6 @@
 var express = require('express')
   , routes = require('./routes')
-  , nano = require('nano')('http://127.0.0.1:5984');
+  , nano = require('nano')(process.env.COUCHDB);
 
 var objkeys = nano.use('objkeys');
 var users = nano.use('okr-users');
@@ -107,7 +107,7 @@ app.post('/comment-post',function(req, res) {
 				b.okr[i].comments.push({"user": req.body.user,"userfullname": req.session.user.fullname,"comment": req.body.text, "date": date});
 				console.log(b.okr[i].comments);
 			}
-	
+
 			else {
 				b.okr[i].comments = [];
 				console.log(req.session.user.fullname);
@@ -121,7 +121,7 @@ app.post('/comment-post',function(req, res) {
 					console.log(b)
 				}
 			});
-		}	
+		}
 	});
 });
 

@@ -1,5 +1,5 @@
 
-var nano = require('nano')('http://jakeschwartz:mandolin@127.0.0.1:6984');
+var nano = require('nano')(process.env.COUCHDB);
 
 var objkeys = nano.use('objkeys');
 /*
