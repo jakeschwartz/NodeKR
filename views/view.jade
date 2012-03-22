@@ -1,22 +1,23 @@
 append head
 	script(src='/javascripts/view-jquery.js')
-
+form.controls
+	input(type="button", value="Comments", id="showcomments")
 h1 OKRs for #{data.ownerfullname} for #{data.period}
 - for (i=0; i<data.okr.length; i++)
-	h2= data.okr[i].goal
+	h2.text= data.okr[i].goal 
 		- for (j=0; j<Object.keys(data.okr[i]).length-2; j++) 
-				li(id='#{i}#{j}') #{data.okr[i][j].text}
+				li.textkr(id='#{i}#{j}') #{data.okr[i][j].text} 
 					- if (data.okr[i][j].date)
 						i - by #{data.okr[i][j].date}
 					input(type='button', id='depend', value='Depend')
 					- if (data.okr[i][j].depend)
 							span.depend= data.okr[i][j].depend
-	div.commentbox Comments
+	div.commentbox
 		- if (data.okr[i].comments)
 		- var many = data.okr[i].comments.length	
 			-for (k=0; k<many; k++)
 				li #{data.okr[i].comments[k].userfullname} : #{data.okr[i].comments[k].comment}
-		form.comments(id='#{i}')
+		form.commentbox(id='#{i}')
 			input(type='text', name='commenttext', id='comment-text')
 			input(type='button', name='submitcomment', value='Submit', id='submitcomment')
 				

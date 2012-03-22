@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	
+	
+	$('div.commentbox').hide();
+	
 	var userID = $('#id').val();
 	var docID = $('#docid').val();
 	$("body").on('click', '#depend', function(){
@@ -14,14 +18,7 @@ $(document).ready(function(){
 		});		
 	})
 	
-	$("body").on('click', '#enable', function(){
-		$(this).attr('value', userID);		
-	})
-	
-	$("body").on('click', '.comments', function() {
-		$(this).closest('div.comments').attr('display', 'visible');	
-	});
-	
+
 	$('input[name="submitcomment"]').click(function() {
 			var text = $(this).siblings('input#comment-text').val();
 			console.log(text);
@@ -34,9 +31,13 @@ $(document).ready(function(){
 			$.post('/comment-post', object, function(data) {
 				console.log(data)
 			});
-			$(this).parent().remove();
+			$(this).parent().prepend("<li>You:" + text + "</li>");
 			
 		});
 
-
+	$('body').on('click', '#showcomments', function() {
+		console.log("Button");
+		$(".commentbox").toggle();
+		$("form.commentbox").toggle();
+	});
 });

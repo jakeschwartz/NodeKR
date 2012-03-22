@@ -3,8 +3,6 @@
 	-Different list views - by division, by supervisor, by period
 	-Have period be a select drop down with 'this quarter' and 'next quarter'
 	-BIG PROJECT: in line editing
-	-BIG PROJECT: commenting, assignments of "watch"
-	-
 
 /**
  * Module dependencies.
@@ -109,6 +107,7 @@ app.post('/view-post', function(req, res) {
 });
 
 app.post('/comment-post',function(req, res) {
+	var date = new Date();
 	var i = req.body.address[0];
 	objkeys.get(req.body.doc, function(e, b, h) {
 		if (e) {
@@ -116,7 +115,7 @@ app.post('/comment-post',function(req, res) {
 		}
 		else {
 			if (b.okr[i].comments) {
-				b.okr[i].comments.push({"user": req.body.user,"comment": req.body.text});
+				b.okr[i].comments.push({"user": req.body.user,"userfullname": req.session.user.fullname,"comment": req.body.text, "date": date});
 				console.log(b.okr[i].comments);
 			}
 	
